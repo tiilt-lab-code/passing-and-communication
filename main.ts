@@ -36,19 +36,23 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     if (coach_mode) {
         delay += 1
+        basic.showNumber(delay)
+        basic.pause(1000)
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     radio.setGroup(11)
+    basic.showString("group 11")
 })
 let players: number[] = []
+let delay = 0
 let running = false
 let coach_mode = false
 coach_mode = false
 running = false
 radio.setGroup(13)
 radio.setTransmitSerialNumber(true)
-let delay = 1
+delay = 1
 basic.forever(function () {
     if (running) {
         radio.sendNumber(players._pickRandom())
