@@ -38,6 +38,9 @@ input.onButtonPressed(Button.B, function () {
         delay += 1
     }
 })
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    radio.setGroup(11)
+})
 let players: number[] = []
 let running = false
 let coach_mode = false
