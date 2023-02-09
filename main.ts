@@ -33,6 +33,11 @@ radio.onReceivedString(function (receivedString) {
         }
     }
 })
+input.onButtonPressed(Button.B, function () {
+    if (coach_mode) {
+        delay += 1
+    }
+})
 let players: number[] = []
 let running = false
 let coach_mode = false
@@ -40,13 +45,14 @@ coach_mode = false
 running = false
 radio.setGroup(13)
 radio.setTransmitSerialNumber(true)
+let delay = 1
 basic.forever(function () {
     if (running) {
         radio.sendNumber(players._pickRandom())
         basic.showIcon(IconNames.Heart)
-        basic.pause(1000)
-        basic.pause(1000)
+        for (let index = 0; index < delay; index++) {
+            basic.pause(1000)
+        }
         basic.showIcon(IconNames.SmallHeart)
-        basic.pause(1000)
     }
 })
