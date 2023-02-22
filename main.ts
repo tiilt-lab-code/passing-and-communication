@@ -40,10 +40,6 @@ input.onButtonPressed(Button.B, function () {
         basic.pause(1000)
     }
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    radio.setGroup(11)
-    basic.showString("group 11")
-})
 let players: number[] = []
 let delay = 0
 let running = false
