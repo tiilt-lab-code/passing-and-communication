@@ -1,5 +1,6 @@
 radio.onReceivedNumber(function (receivedNumber) {
     basic.clearScreen()
+    pins.digitalWritePin(DigitalPin.P0, 0)
     if (control.deviceSerialNumber() == receivedNumber) {
         basic.showLeds(`
             . # # # .
@@ -8,6 +9,7 @@ radio.onReceivedNumber(function (receivedNumber) {
             # # # # #
             . # # # .
             `)
+        pins.digitalWritePin(DigitalPin.P0, 1)
     }
 })
 input.onButtonPressed(Button.A, function () {
@@ -22,7 +24,7 @@ input.onButtonPressed(Button.AB, function () {
     if (!(running) && !(coach_mode)) {
         coach_mode = true
         players = []
-        basic.showString("Coach")
+        basic.showString("C")
     }
 })
 radio.onReceivedString(function (receivedString) {
