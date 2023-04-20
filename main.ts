@@ -44,7 +44,7 @@ input.onButtonPressed(Button.A, function () {
         radio.sendString("add")
     } else if (!(running) && coach_mode) {
         running = true
-        basic.showIcon(IconNames.Heart)
+        basic.showIcon(IconNames.Square)
     }
 })
 input.onButtonPressed(Button.AB, function () {
