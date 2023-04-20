@@ -1,24 +1,34 @@
 radio.onReceivedNumber(function (receivedNumber) {
     basic.clearScreen()
     if (control.deviceSerialNumber() == receivedNumber) {
-        rnd = randint(0, 5)
-        if (rnd == 0) {
-            basic.showLeds(`
-                . # # # .
-                # # # # #
-                # # # # #
-                # # # # #
-                . # # # .
-                `)
-        } else if (rnd == 1) {
-            basic.showArrow(ArrowNames.North)
-        } else if (rnd == 2) {
-            basic.showArrow(ArrowNames.South)
-        } else if (rnd == 3) {
-            basic.showArrow(ArrowNames.West)
-        } else if (rnd == 4) {
-            basic.showArrow(ArrowNames.East)
-        } else if (rnd == 5) {
+        if (team) {
+            rnd = randint(0, 5)
+            if (rnd == 0) {
+                basic.showLeds(`
+                    . # # # .
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    . # # # .
+                    `)
+            } else if (rnd == 1) {
+                basic.showArrow(ArrowNames.North)
+            } else if (rnd == 2) {
+                basic.showArrow(ArrowNames.South)
+            } else if (rnd == 3) {
+                basic.showArrow(ArrowNames.West)
+            } else if (rnd == 4) {
+                basic.showArrow(ArrowNames.East)
+            } else if (rnd == 5) {
+                basic.showLeds(`
+                    . # # # .
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    . # # # .
+                    `)
+            }
+        } else {
             basic.showLeds(`
                 . # # # .
                 # # # # #
@@ -69,10 +79,6 @@ input.onButtonPressed(Button.B, function () {
         basic.showNumber(delay)
         basic.pause(1000)
     }
-})
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    radio.setGroup(11)
-    basic.showString("group 11")
 })
 let players: number[] = []
 let rnd = 0
