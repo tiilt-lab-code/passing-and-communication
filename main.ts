@@ -88,7 +88,7 @@ let running = false
 let coach_mode = false
 coach_mode = false
 running = false
-radio.setGroup(13)
+radio.setGroup(24)
 radio.setTransmitSerialNumber(true)
 delay = 1
 team = false
