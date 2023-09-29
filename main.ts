@@ -35,7 +35,7 @@ radio.onReceivedString(function (receivedString) {
 })
 input.onButtonPressed(Button.B, function () {
     if (coach_mode) {
-        delay += 1
+        delay += -1
         basic.showNumber(delay)
         basic.pause(1000)
     }
